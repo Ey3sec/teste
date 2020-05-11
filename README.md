@@ -1,37 +1,58 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
 
-You can use the [editor on GitHub](https://github.com/Ey3sec/teste/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<head>
+	<title>Mítika AR</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+	<link rel="stylesheet" href="demo-styles.css">
 
-### Markdown
+	<!-- The following libraries and polyfills are recommended to maximize browser support -->
+	<!-- NOTE: you must adjust the paths as appropriate for your project -->
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+	<!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+	<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
 
-```markdown
-Syntax highlighted code block
+	<!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+	<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
 
-# Header 1
-## Header 2
-### Header 3
+	<!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+	<script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.js"></script>
 
-- Bulleted
-- List
+	<!-- 💁 OPTIONAL: Fullscreen polyfill is needed to fully support AR features -->
+	<script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
 
-1. Numbered
-2. List
+	<!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
+	<script src="https://unpkg.com/@magicleap/prismatic/prismatic.min.js"></script>
 
-**Bold** and _Italic_ and `Code` text
+	<!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+	<script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
 
-[Link](url) and ![Image](src)
-```
+	<!-- Loads <model-viewer> for modern browsers: -->
+	<script type="module" src="https://unpkg.com/@google/model-viewer@v0.9.0/dist/model-viewer.js">
+	</script>
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+	<!-- Loads <model-viewer> for old browsers like IE11: -->
+	<script nomodule src="https://unpkg.com/@google/model-viewer@v0.9.0/dist/model-viewer-legacy.js">
+	</script>
 
-### Jekyll Themes
+</head>
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Ey3sec/teste/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+<body>
+	<div id="card">
+		<!-- All you need to put beautiful, interactive 3D content on your site: -->
+		<model-viewer	src="assets/Astrounaut.glb"
+						ios-src="assets/MitikaLogo.usdz"
+						alt="Logo da Mítika em 3D"
+						shadow-intensity="1"
+						camera-controls
+						interaction-prompt="auto"
+						ar ar-modes="webxr scene-viewer quick-look fallback"
+						ar-scale="auto"
+						auto-rotate ar magic-leap>
+		</model-viewer>
+	</div>
+</body>
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</html>
